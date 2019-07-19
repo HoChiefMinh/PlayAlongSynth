@@ -1,3 +1,11 @@
-var array1 = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
-let name = 'patrick'
+var keyboard = new QwertyHancock({
+  id: 'keyboard',
+  width: 600,
+  height: 150,
+  octaves: 2,
+  startNote: 'A3',
+  whiteNotesColour: 'white',
+  blackNotesColour: 'black',
+  hoverColour: '#f3e939'
+});
 
