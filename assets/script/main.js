@@ -8,3 +8,4 @@ var keyboard = new QwertyHancock({
   blackNotesColour: 'black',
   hoverColour: '#f3e939'
 });
+
