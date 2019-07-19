@@ -1,6 +1,6 @@
 # ProjectUno
 
-* Source: https://github.com/HoChiefMinh/ProjectUno/settings
+* Source: https://hochiefminh.github.io/ProjectUno/
 
 * Applications
 
@@ -24,11 +24,3 @@
     1. Find music API to draw music, artists, albumns, etc.
 
     2. Research Synth tools and Tone.js
-
-    3. 
-
-    4. 
-
-    5. 
-
-    6. 
