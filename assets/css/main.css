@@ -17,7 +17,7 @@ body {
   position: relative;
   margin-left: 4px;
   flex-direction: row;
-  right: 30px;
+  right: 170px;
 }
 
 .white-key {
@@ -78,16 +78,24 @@ body {
   left: 310px;
 }
 
+.drums {
+  background-image: linear-gradient(rgb(184, 5, 184), rgb(51, 51, 51));
+  position: relative;
+  right: 40px;
+  left: 194px;
+  bottom: 68px;
+  width: 364px;
+  height: 80px;
+}
+
 .play {
   background-image: linear-gradient(rgb(184, 5, 184), rgb(51, 51, 51));
-  font-size: 20px;
-  display: flex;
-  position: relative;
-  bottom: 73px;
-  left: 20px;
-  width: 716%;
-  border: none;
-  align-items: center;
+  /* height: 100%; */
+  width: 20%;
+  padding: 0;
+  font-size: 30px;
+  text-align: center;
+  border: black solid 2px;
 }
 
 header {
