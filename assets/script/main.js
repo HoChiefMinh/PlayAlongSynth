@@ -1,5 +1,6 @@
 //for when we add an object with the difference synth sounds//
 let count = 0;
+
 //removes classes//
 function classRemover() {
   $(".white-key").removeClass("white-active")
@@ -15,6 +16,9 @@ function createButton() {
   play.attr("data-play", "true")
   $(".drums").append(play)
 }
+
+
+let whiteSource = ['assets/sounds/C4.mp3', 'assets/sounds/D4.mp3', 'assets/sounds/E4.mp3', 'assets/sounds/F4.mp3', 'assets/sounds/G4.mp3', 'assets/sounds/A4.mp3', 'assets/sounds/B4.mp3', 'assets/sounds/C5.mp3', 'assets/sounds/D5.mp3', 'assets/sounds/E5.mp3']
 
 //on clicks for each note, if you know of a better way feel free to change this//
 $(".C4-key").on("click", function() {
@@ -153,10 +157,8 @@ $(".E5-key").on("click", function() {
   E5.src = 'assets/sounds/E5.mp3'
   E5.play();
 })
-//keys for each//
-$(".C4-key").keydown(function() {
+//use keyboard keys to press piano keys//
   
-})
 //play drums on click and pause//
 $(".drums").on("click", ".play", function() {
   let status = $(this).attr("data-play")
