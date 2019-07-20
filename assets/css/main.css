@@ -9,7 +9,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: linear-gradient(#23135a, rgb(35, 163, 214));
+  background-image: linear-gradient(#23135a, rgb(35, 163, 214), rgb(15, 11, 238));
 }
 
 .piano {
@@ -17,6 +17,7 @@ body {
   position: relative;
   margin-left: 4px;
   flex-direction: row;
+  right: 30px;
 }
 
 .white-key {
@@ -80,13 +81,23 @@ body {
 .play {
   background-image: linear-gradient(rgb(184, 5, 184), rgb(51, 51, 51));
   font-size: 20px;
-  outline: none;
   display: flex;
   position: relative;
   bottom: 73px;
-  left: 50px;
+  left: 20px;
   width: 716%;
   border: none;
   align-items: center;
 }
 
+header {
+  width: 100%;
+  position: fixed;
+  height: -40%;
+  display: flex;
+  align-content: center;
+  align-self: flex-start;
+  text-align: center;
+  border-bottom: rgb(12, 12, 12) solid 4px;
+  background-image: linear-gradient(rgb(184, 5, 184), rgb(5, 76, 117));
+}
