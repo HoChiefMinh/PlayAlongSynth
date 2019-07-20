@@ -178,4 +178,3 @@ $(".drums").on("click", ".play", function() {
 
 createButton();
 
-//synth//
