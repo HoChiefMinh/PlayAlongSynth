@@ -102,7 +102,6 @@ header {
   width: 100%;
   position: fixed;
   height: -40%;
-  display: flex;
   align-content: center;
   align-self: flex-start;
   text-align: center;
