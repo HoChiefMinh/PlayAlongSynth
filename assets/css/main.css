@@ -16,6 +16,7 @@ body {
   display: flex;
   position: relative;
   margin-left: 4px;
+  flex-direction: row;
 }
 
 .white-key {
@@ -29,7 +30,7 @@ body {
   cursor: pointer;
 }
 
-.white-key.active {
+.white-active {
   background-color: #C0C0C0;
 }
 
@@ -44,8 +45,8 @@ body {
   cursor: pointer;
 }
 
-.black-key.active {
-  background-image: linear-gradient(#000000, #101010);
+.black-active {
+  background-image: linear-gradient(#c28f8f, #7a7070);
 }
 
 .Db4-key {
@@ -75,3 +76,17 @@ body {
 .Eb5-key {
   left: 310px;
 }
+
+.play {
+  background-image: linear-gradient(rgb(184, 5, 184), rgb(51, 51, 51));
+  font-size: 20px;
+  outline: none;
+  display: flex;
+  position: relative;
+  bottom: 73px;
+  left: 50px;
+  width: 716%;
+  border: none;
+  align-items: center;
+}
+
