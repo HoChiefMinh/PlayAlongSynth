@@ -12,7 +12,7 @@ body {
   background-image: linear-gradient(#23135a, rgb(35, 163, 214), rgb(15, 11, 238));
 }
 
-.piano {
+#piano {
   display: flex;
   position: relative;
   margin-left: 4px;
@@ -107,4 +107,17 @@ header {
   text-align: center;
   border-bottom: rgb(12, 12, 12) solid 4px;
   background-image: linear-gradient(rgb(184, 5, 184), rgb(5, 76, 117));
+}
+
+#one {
+  background-image: linear-gradient(rgb(240, 2, 240), rgb(12, 129, 197));
+  outline: none;
+  position: relative;
+  right: 530px;
+  top: 70px;
+}
+
+#two {
+  background-image: linear-gradient(rgb(240, 2, 240), rgb(12, 129, 197));
+  outline: none;
 }

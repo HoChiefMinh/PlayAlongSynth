@@ -17,9 +17,6 @@ function createButton() {
   $(".drums").append(play)
 }
 
-
-let whiteSource = ['assets/sounds/C4.mp3', 'assets/sounds/D4.mp3', 'assets/sounds/E4.mp3', 'assets/sounds/F4.mp3', 'assets/sounds/G4.mp3', 'assets/sounds/A4.mp3', 'assets/sounds/B4.mp3', 'assets/sounds/C5.mp3', 'assets/sounds/D5.mp3', 'assets/sounds/E5.mp3']
-
 //on clicks for each note, if you know of a better way feel free to change this//
 $(".C4-key").on("click", function() {
   $(".C4-key").addClass("white-active");
@@ -177,4 +174,249 @@ $(".drums").on("click", ".play", function() {
 })
 
 createButton();
+
+//creating buttons to hold our created sounds//
+let soundButtonOne = $("<button>")
+soundButtonOne.text("preset-1")
+soundButtonOne.attr("id", "one")
+$("#sounds").append(soundButtonOne)
+let soundButtonTwo = $("<button>")
+soundButtonTwo.text("preset-2")
+soundButtonTwo.attr("id", "two")
+$("#sounds").append(soundButtonTwo)
+console.log(soundButtonOne)
+
+//on click change to next sound//
+let soundOne = document.getElementById("one")
+soundOne.addEventListener("click", function() {
+  console.log("hello")
+
+  const synthA = new Tone.Synth({
+    "oscillator" : {
+      "type" : "sine",
+      "harmonicity" : 0.8
+    },
+  
+    "portamento" : 0.03,
+
+    "pitchShift" : {
+      "pitch" : -12
+    },
+    
+  });
+  
+  synthA.toMaster();
+
+  const piano = document.getElementById("piano");
+
+  piano.addEventListener("mousedown", e => {
+    // fires off a note continously until trigger is released
+    synthA.triggerAttack(e.target.dataset.note);
+    console.log(synthA);
+  });
+  
+  piano.addEventListener("mouseup", e => {
+    // stops the trigger
+    synthA.triggerRelease();
+  });
+  
+    // handles keyboard events
+  document.addEventListener("keydown", e => {
+    // set keys to keyboard//
+    switch (e.key) {
+      case "a":
+        $(".C4-key").addClass("white-active");
+        setTimeout(classRemover, 150)
+        return synthA.triggerAttack("C4"); 
+      case "w":
+        $(".Db4-key").addClass("black-active");
+        setTimeout(classRemover, 150)
+        return synthA.triggerAttack("Db4");
+      case "s":
+        $(".D4-key").addClass("white-active");
+        setTimeout(classRemover, 150)
+        return synthA.triggerAttack("D4");
+      case "e":
+        $(".Eb4-key").addClass("black-active");
+        setTimeout(classRemover, 150)
+        return synthA.triggerAttack("Eb4");
+      case "d":
+        $(".E4-key").addClass("white-active");
+        setTimeout(classRemover, 150)
+        return synthA.triggerAttack("E4");
+      case "f":
+        $(".F4-key").addClass("white-active");
+        setTimeout(classRemover, 150)
+        return synthA.triggerAttack("F4");
+      case "t":
+        $(".Gb4-key").addClass("black-active");
+        setTimeout(classRemover, 150)
+        return synthA.triggerAttack("Gb4");
+      case "g":
+        $(".G4-key").addClass("white-active");
+        setTimeout(classRemover, 150)
+        return synthA.triggerAttack("G4");
+      case "y":
+        $(".Ab4-key").addClass("black-active");
+        setTimeout(classRemover, 150)
+        return synthA.triggerAttack("Ab4");
+      case "h":
+        $(".A4-key").addClass("white-active");
+        setTimeout(classRemover, 150)
+        return synthA.triggerAttack("A4");
+      case "u":
+        $(".Bb4-key").addClass("black-active");
+        setTimeout(classRemover, 150)
+        return synthA.triggerAttack("Bb4");
+      case "j":
+        $(".B4-key").addClass("white-active");
+        setTimeout(classRemover, 150)
+        return synthA.triggerAttack("B4");
+      case "k":
+        $(".C5-key").addClass("white-active");
+        setTimeout(classRemover, 150)
+        return synthA.triggerAttack("C5");
+      case "o":
+        $(".Db5-key").addClass("black-active");
+        setTimeout(classRemover, 150)
+        return synthA.triggerAttack("Db5");
+      case "l":
+        $(".D5-key").addClass("white-active");
+        setTimeout(classRemover, 150)
+        return synthA.triggerAttack("D5");
+      case "p":
+        $(".Eb5-key").addClass("black-active");
+        setTimeout(classRemover, 150)
+        return synthA.triggerAttack("Eb5");
+      case ";":
+        $(".E5-key").addClass("white-active");
+        setTimeout(classRemover, 150)
+        return synthA.triggerAttack("E5")
+      default:
+        return;
+    }
+    });
+  // the key plays the audio//
+  document.addEventListener("keyup", e => {
+    switch (e.key) {
+      case "a":
+      case "w":
+      case "s":
+      case "e":
+      case "d":
+      case "f":
+      case "t":
+      case "g":
+      case "y":
+      case "h":
+      case "u":
+      case "j":
+      case "k":
+      case "o":
+      case "l":
+      case "p":
+      case ";":
+        synthA.triggerRelease(); 
+    }
+  });
+})
+
+
+
+let soundTwo = document.getElementById("two")
+soundTwo.addEventListener("click", function() {
+
+  console.log("hello")
+  
+  var synthB = new Tone.Synth({
+    oscillator: {
+      type: 'triangle8'
+    },
+    envelope: {
+      attack: 2,
+      decay: 1,
+      sustain: 0.4,
+      release: 4
+    }
+  }).toMaster()
+
+  const piano = document.getElementById("piano");
+
+  piano.addEventListener("mousedown", e => {
+    // fires off a note continously until trigger is released
+    synthB.triggerAttack(e.target.dataset.note);
+    console.log(synthB);
+  });
+  
+  piano.addEventListener("mouseup", e => {
+    // stops the trigger
+    synthB.triggerRelease();
+  });
+  
+    // handles keyboard events
+  document.addEventListener("keydown", e => {
+    // set keys to keyboard//
+    switch (e.key) {
+      case "a":
+        return synthB.triggerAttack("C4");
+      case "w":
+        return synthB.triggerAttack("Db4");
+      case "s":
+        return synthB.triggerAttack("D4");
+      case "e":
+        return synthB.triggerAttack("Eb4");
+      case "d":
+        return synthB.triggerAttack("E4");
+      case "f":
+        return synthB.triggerAttack("F4");
+      case "t":
+        return synthB.triggerAttack("Gb4");
+      case "g":
+        return synthB.triggerAttack("G4");
+      case "y":
+        return synthB.triggerAttack("Ab4");
+      case "h":
+        return synthB.triggerAttack("A4");
+      case "u":
+        return synthB.triggerAttack("Bb4");
+      case "j":
+        return synthB.triggerAttack("B4");
+      case "k":
+        return synthB.triggerAttack("C5");
+      case "o":
+        return synthB.triggerAttack("Db5");
+      case "l":
+        return synthB.triggerAttack("D5");
+      case "p":
+        return synthB.triggerAttack("Eb5");
+      case ";":
+        return synthB.triggerAttack("E5")
+      default:
+        return;
+    }
+    });
+  // the key plays the audio//
+  document.addEventListener("keyup", e => {
+    switch (e.key) {
+      case "a":
+      case "w":
+      case "s":
+      case "e":
+      case "d":
+      case "f":
+      case "t":
+      case "g":
+      case "y":
+      case "h":
+      case "u":
+      case "j":
+      case "k":
+      case "o":
+      case "l":
+      case "p":
+      case ";":
+        synthB.triggerRelease(); 
+    }
+  });
+})
 
