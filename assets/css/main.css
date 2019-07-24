@@ -98,19 +98,6 @@ body {
   border: black solid 2px;
 }
 
-#one {
-  background-image: linear-gradient(rgb(240, 2, 240), rgb(12, 129, 197));
-  outline: none;
-  position: relative;
-  right: 530px;
-  top: 70px;
-}
-
-#two {
-  background-image: linear-gradient(rgb(240, 2, 240), rgb(12, 129, 197));
-  outline: none;
-}
-
 /* Header Styling */
 header {
   background: linear-gradient(to left,rgba(54,194,182,0.96) 0,rgba(62,188,207,0.96) 100%);
@@ -215,10 +202,9 @@ ul#menu li {
 }
 
 /* Sounds */
-#sounds {
-  display: flex;
-  position: fixed;
-  margin-left: 4px;
-  flex-direction: column;
-  right: 170px;
+#one, #two, #piano-one {
+  background-image: linear-gradient(rgb(240, 2, 240), rgb(12, 129, 197));
+  outline: none;
+  height: 80px;
+  width: 75px;
 }
