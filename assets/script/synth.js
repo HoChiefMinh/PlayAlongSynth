@@ -167,8 +167,10 @@ soundOne.addEventListener("click", function() {
     },
     
     "envelope" : {
+      "attack" : 0,
+      "decay" : 0,
       "sustain" : 1,
-      "release" : 0
+      "release" : 0,
     },
 
     "portamento" : 0.03,
