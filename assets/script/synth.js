@@ -168,7 +168,14 @@ soundOne.addEventListener("click", function() {
       type : "sine",
       partials : [0, 1, 6, 7]
     },
-  
+
+    "envelope" : {
+      "attack" : 0,
+      "decay" : 0,
+      "sustain" : 1,
+      "release" : 0,
+    },
+
     "portamento" : 0.03,
 
     "pitchShift" : {
