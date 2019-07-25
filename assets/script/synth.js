@@ -12,6 +12,10 @@ let pianoButton = $("<button>")
 pianoButton.text("piano")
 pianoButton.attr("id", "piano-one")
 $("#sounds").append(pianoButton)
+let soundButtonThree = $("<button>")
+soundButtonThree.text("preset-3")
+soundButtonThree.attr("id", "three")
+$("#sounds").append(soundButtonThree)
 
 //on click change to next sound//
 //starts piano audio on click//
@@ -159,13 +163,12 @@ let soundOne = document.getElementById("one")
 soundOne.addEventListener("click", function() {
   console.log("hello")
 
-  const synthA = new Tone.PolySynth(6, Tone.Synth, {
-    "oscillator" : {
-      "type" : "sine",
-      "harmonicity" : 0.8,
-      "partials" : [0, 1, 6, 7]
+  const synthA = new Tone.PolySynth(8, Tone.Synth, {
+    oscillator : {
+      type : "sine",
+      partials : [0, 1, 6, 7]
     },
-    
+
     "envelope" : {
       "attack" : 0,
       "decay" : 0,
@@ -179,13 +182,11 @@ soundOne.addEventListener("click", function() {
       "pitch" : -12
     },
     
-  });
+  }).toMaster()
   
-  synthA.toMaster();
-
   const piano = document.getElementById("piano");
 
-  piano.addEventListener("mousedown", e => {
+  piano.addEventListener("click", e => {
     // fires off a note continously until trigger is released
     synthA.triggerAttack(e.target.dataset.note);
     console.log(synthA);
@@ -193,7 +194,7 @@ soundOne.addEventListener("click", function() {
   
   piano.addEventListener("mouseup", e => {
     // stops the trigger
-    synthA.triggerRelease();
+    synthA.triggerAttackRelease("4n");
   });
   
     // handles keyboard events
@@ -201,77 +202,108 @@ soundOne.addEventListener("click", function() {
     // set keys to keyboard//
     switch (e.key) {
       case "a":
-        $(".C4-key").addClass("white-active");
+        let c = document.querySelector(".C4-key")
+        c.classList.add("white-active");
         setTimeout(classRemover, 150)
-        return synthA.triggerAttack("C4"); 
+        return synthA.triggerAttackRelease("C4", "3n"); 
       case "w":
         $(".Db4-key").addClass("black-active");
         setTimeout(classRemover, 150)
-        return synthA.triggerAttack("Db4");
+        return synthA.triggerAttackRelease("Db4", "3n");
       case "s":
         $(".D4-key").addClass("white-active");
         setTimeout(classRemover, 150)
-        return synthA.triggerAttack("D4");
+        return synthA.triggerAttackRelease("D4", "3n");
       case "e":
         $(".Eb4-key").addClass("black-active");
         setTimeout(classRemover, 150)
-        return synthA.triggerAttack("Eb4");
+        return synthA.triggerAttackRelease("Eb4", "3n");
       case "d":
         $(".E4-key").addClass("white-active");
         setTimeout(classRemover, 150)
-        return synthA.triggerAttack("E4");
+        return synthA.triggerAttackRelease("E4", "3n");
       case "f":
         $(".F4-key").addClass("white-active");
         setTimeout(classRemover, 150)
-        return synthA.triggerAttack("F4");
+        return synthA.triggerAttackRelease("F4", "3n");
       case "t":
         $(".Gb4-key").addClass("black-active");
         setTimeout(classRemover, 150)
-        return synthA.triggerAttack("Gb4");
+        return synthA.triggerAttackRelease("Gb4", "3n");
       case "g":
         $(".G4-key").addClass("white-active");
         setTimeout(classRemover, 150)
-        return synthA.triggerAttack("G4");
+        return synthA.triggerAttackRelease("G4", "3n");
       case "y":
         $(".Ab4-key").addClass("black-active");
         setTimeout(classRemover, 150)
-        return synthA.triggerAttack("Ab4");
+        return synthA.triggerAttackRelease("Ab4", "3n");
       case "h":
         $(".A4-key").addClass("white-active");
         setTimeout(classRemover, 150)
-        return synthA.triggerAttack("A4");
+        return synthA.triggerAttackRelease("A4", "3n");
       case "u":
         $(".Bb4-key").addClass("black-active");
         setTimeout(classRemover, 150)
-        return synthA.triggerAttack("Bb4");
+        return synthA.triggerAttackRelease("Bb4", "3n");
       case "j":
         $(".B4-key").addClass("white-active");
         setTimeout(classRemover, 150)
-        return synthA.triggerAttack("B4");
+        return synthA.triggerAttackRelease("B4", "3n");
       case "k":
         $(".C5-key").addClass("white-active");
         setTimeout(classRemover, 150)
-        return synthA.triggerAttack("C5");
+        return synthA.triggerAttackRelease("C5", "3n");
       case "o":
         $(".Db5-key").addClass("black-active");
         setTimeout(classRemover, 150)
-        return synthA.triggerAttack("Db5");
+        return synthA.triggerAttackRelease("Db5", "3n");
       case "l":
         $(".D5-key").addClass("white-active");
         setTimeout(classRemover, 150)
-        return synthA.triggerAttack("D5");
+        return synthA.triggerAttackRelease("D5", "3n");
       case "p":
         $(".Eb5-key").addClass("black-active");
         setTimeout(classRemover, 150)
-        return synthA.triggerAttack("Eb5");
+        return synthA.triggerAttackRelease("Eb5", "3n");
       case ";":
         $(".E5-key").addClass("white-active");
         setTimeout(classRemover, 150)
-        return synthA.triggerAttack("E5")
+        return synthA.triggerAttackRelease("E5", "3n")
+      case "'":
+        $(".F5-key").addClass("white-active");
+        setTimeout(classRemover, 150)
+        return synthA.triggerAttackRelease("F5", "3n")
+      case "]":
+        $(".Gb5-key").addClass("black-active");
+        setTimeout(classRemover, 150)
+        return synthA.triggerAttackRelease("Gb5", "3n")
+      case "z":
+        $(".G5-key").addClass("white-active");
+        setTimeout(classRemover, 150)
+        return synthA.triggerAttackRelease("G5", "3n")
+      case "x":
+        $(".Ab5-key").addClass("black-active");
+        setTimeout(classRemover, 150)
+        return synthA.triggerAttackRelease("Ab5", "3n")
+      case "c":
+        $("A5-key").addClass("white-active")
+        setTimeout(classRemover, 150)
+        return synthA.triggerAttackRelease("A5", "3n")
+      case "v":
+        $("Bb5-key").addClass("black-active")
+        setTimeout(classRemover, 150)
+        return synthA.triggerAttackRelease("Bb5", "3n")
+      case "b":
+        $("B5-key").addClass("white-active")
+        setTimeout(classRemover, 150)
+        return synthA.triggerAttackRelease("B5", "3n")
       default:
         return;
     }
     });
+
+    console.log(synthA)
   // the key plays the audio//
   document.addEventListener("keyup", e => {
     switch (e.key) {
@@ -292,7 +324,7 @@ soundOne.addEventListener("click", function() {
       case "l":
       case "p":
       case ";":
-        synthA.triggerRelease(); 
+        synthA.triggerRelease("4n"); 
     }
   });
 })
@@ -301,7 +333,7 @@ let soundTwo = document.getElementById("two")
 soundTwo.addEventListener("click", function() {
   console.log("hello")
   
-  var synthB = new Tone.Synth({
+  var synthB = new Tone.PolySynth({
     oscillator: {
       type: 'triangle8'
     },
@@ -333,39 +365,71 @@ soundTwo.addEventListener("click", function() {
       case "a":
         $(".C4-key").addClass("white-active");
         setTimeout(classRemover, 150)
-        return synthB.triggerAttack("C4");
+        return synthB.triggerAttackRelease("C4", "3n");
       case "w":
-        return synthB.triggerAttack("Db4");
+      $(".Db4-key").addClass("black-active");
+      setTimeout(classRemover, 150)
+        return synthB.triggerAttackRelease("Db4", "3n");
       case "s":
-        return synthB.triggerAttack("D4");
+      $(".D4-key").addClass("white-active");
+      setTimeout(classRemover, 150)
+        return synthB.triggerAttackRelease("D4", "3n");
       case "e":
-        return synthB.triggerAttack("Eb4");
+      $(".Eb4-key").addClass("black-active");
+      setTimeout(classRemover, 150)
+        return synthB.triggerAttackRelease("Eb4", "3n");
       case "d":
-        return synthB.triggerAttack("E4");
+      $(".E4-key").addClass("white-active");
+      setTimeout(classRemover, 150)
+        return synthB.triggerAttackRelease("E4", "3n");
       case "f":
-        return synthB.triggerAttack("F4");
+      $(".F4-key").addClass("white-active");
+      setTimeout(classRemover, 150)
+        return synthB.triggerAttackRelease("F4", "3n");
       case "t":
-        return synthB.triggerAttack("Gb4");
+      $(".Gb4-key").addClass("black-active");
+      setTimeout(classRemover, 150)
+        return synthB.triggerAttackRelease("Gb4", "3n");
       case "g":
-        return synthB.triggerAttack("G4");
+      $(".G4-key").addClass("white-active");
+      setTimeout(classRemover, 150)
+        return synthB.triggerAttackRelease("G4", "3n");
       case "y":
-        return synthB.triggerAttack("Ab4");
+      $(".Ab4-key").addClass("black-active");
+      setTimeout(classRemover, 150)
+        return synthB.triggerAttackRelease("Ab4", "3n");
       case "h":
-        return synthB.triggerAttack("A4");
+      $(".A4-key").addClass("white-active");
+      setTimeout(classRemover, 150)
+        return synthB.triggerAttackRelease("A4", "3n");
       case "u":
-        return synthB.triggerAttack("Bb4");
+      $(".Bb4-key").addClass("black-active");
+      setTimeout(classRemover, 150)
+        return synthB.triggerAttackRelease("Bb4", "3n");
       case "j":
-        return synthB.triggerAttack("B4");
+      $(".B4-key").addClass("white-active");
+      setTimeout(classRemover, 150)
+        return synthB.triggerAttackRelease("B4", "3n");
       case "k":
-        return synthB.triggerAttack("C5");
+      $(".C5-key").addClass("white-active");
+      setTimeout(classRemover, 150)
+        return synthB.triggerAttackRelease("C5", "3n");
       case "o":
-        return synthB.triggerAttack("Db5");
+      $(".Db5-key").addClass("white-active");
+      setTimeout(classRemover, 150)
+        return synthB.triggerAttackRelease("Db5", "3n");
       case "l":
-        return synthB.triggerAttack("D5");
+      $(".D5-key").addClass("black-active");
+      setTimeout(classRemover, 150)
+        return synthB.triggerAttackRelease("D5", "3n");
       case "p":
-        return synthB.triggerAttack("Eb5");
+      $(".Eb5-key").addClass("black-active");
+      setTimeout(classRemover, 150)
+        return synthB.triggerAttackRelease("Eb5", "3n");
       case ";":
-        return synthB.triggerAttack("E5")
+      $(".E5-key").addClass("white-active");
+      setTimeout(classRemover, 150)
+        return synthB.triggerAttackRelease("E5", "3n")
       default:
         return;
     }
@@ -395,4 +459,119 @@ soundTwo.addEventListener("click", function() {
   });
 })
 
+let soundThree = document.getElementById("three")
+soundThree.addEventListener("click", function() {
+  var synthC = new Tone.PolySynth(6, Tone.Synth, {
+    
+    oscillator: {
+      type: 'sine',
+      modulationType: 'sine',
+      modulationIndex: 3,
+      harmonicity: 3.4
+    },
+    envelope: {
+      attack: 0.001,
+      decay: 0.1,
+      sustain: 0.1,
+      release: 0.1   
+    },
 
+    delay: {
+      delayTime: 4
+    },
+
+    pitchShift: {
+      pitch: -12
+    }
+}).toMaster()
+
+const piano = document.getElementById("piano");
+
+  piano.addEventListener("mousedown", e => {
+    // fires off a note continously until trigger is released
+    synthC.triggerAttack(e.target.dataset.note);
+    console.log(SynthC);
+  });
+  
+  piano.addEventListener("mouseup", e => {
+    // stops the trigger
+    synthC.triggerRelease();
+  });
+  
+    // handles keyboard events
+  document.addEventListener("keydown", e => {
+    // set keys to keyboard//
+    switch (e.key) {
+      case "a":
+        $(".C4-key").addClass("white-active");
+        setTimeout(classRemover, 150)
+        return synthC.triggerAttackRelease(["C4", "Eb4", "G4", "Bb4", "D5"] , "8n");
+      case "w":
+      $(".Db4-key").addClass("black-active");
+      setTimeout(classRemover, 150)
+        return synthC.triggerAttackRelease(["Db4", "E4", "Ab4", "B4", "Eb5"], "8n");
+      case "s":
+      $(".D4-key").addClass("white-active");
+      setTimeout(classRemover, 150)
+        return synthC.triggerAttackRelease(["D4", "F4", "A4", "C5", "E5"], "8n");
+      case "e":
+      $(".Eb4-key").addClass("black-active");
+      setTimeout(classRemover, 150)
+        return synthC.triggerAttackRelease(["Eb4", "Gb4", "Bb4", "Db5", "F5"], "8n");
+      case "d":
+      $(".E4-key").addClass("white-active");
+      setTimeout(classRemover, 150)
+        return synthC.triggerAttackRelease(["E4", "G4", "B4", "D5", "Gb5"], "8n");
+      case "f":
+      $(".F4-key").addClass("white-active");
+      setTimeout(classRemover, 150)
+        return synthC.triggerAttackRelease(["F4", "Ab4", "C5", "Eb5", "G5"], "8n");
+      case "t":
+      $(".Gb4-key").addClass("black-active");
+      setTimeout(classRemover, 150)
+        return synthC.triggerAttackRelease(["Gb4", "A4", "Db5", "E5", "Ab5"], "8n");
+      case "g":
+      $(".G4-key").addClass("white-active");
+      setTimeout(classRemover, 150)
+        return synthC.triggerAttackRelease(["G4", "Bb4", "D5", "F5", "A5"], "8n");
+      case "y":
+      $(".Ab4-key").addClass("black-active");
+      setTimeout(classRemover, 150)
+        return synthC.triggerAttackRelease(["Ab4", "B4", "Eb5", "Gb5", "Ab5"], "8n");
+      case "h":
+      $(".A4-key").addClass("white-active");
+      setTimeout(classRemover, 150)
+        return synthC.triggerAttackRelease(["A4", "C5", "E5", "G5", "B5"], "8n");
+      case "u":
+      $(".Bb4-key").addClass("black-active");
+      setTimeout(classRemover, 150)
+        return synthC.triggerAttackRelease("Bb4", "3n");
+      case "j":
+      $(".B4-key").addClass("white-active");
+      setTimeout(classRemover, 150)
+        return synthC.triggerAttackRelease("B4", "3n");
+      case "k":
+      $(".C5-key").addClass("white-active");
+      setTimeout(classRemover, 150)
+        return synthC.triggerAttackRelease("C5", "3n");
+      case "o":
+      $(".Db5-key").addClass("white-active");
+      setTimeout(classRemover, 150)
+        return synthC.triggerAttackRelease("Db5", "3n");
+      case "l":
+      $(".D5-key").addClass("black-active");
+      setTimeout(classRemover, 150)
+        return synthC.triggerAttackRelease("D5", "3n");
+      case "p":
+      $(".Eb5-key").addClass("black-active");
+      setTimeout(classRemover, 150)
+        return synthC.triggerAttackRelease("Eb5", "3n");
+      case ";":
+      $(".E5-key").addClass("white-active");
+      setTimeout(classRemover, 150)
+        return synthC.triggerAttackRelease("E5", "3n")
+      default:
+        return;
+    }
+    });
+  })
