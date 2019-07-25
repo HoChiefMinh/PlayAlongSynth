@@ -7,6 +7,7 @@
     <title>ProjectUno</title>
     <script src="https://code.jquery.com/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/13.0.1/Tone.min.js"></script>
+    <script src="https://unpkg.com/@webcomponents/webcomponentsjs@^2/webcomponents-bundle.js"></script>
     <link rel="stylesheet" href="assets/css/main.css">
 </head>
 
@@ -43,9 +44,9 @@
         <div class="left">
             <div>
                 <span>Volume: </span>
-                <input type="range" min="0.0" max="1.0" step="0.01" value="0.5" list="volumes" name="volume">
+                <input id="range" type="range" min="0.1" max="1.0" step="0.01" value="0.6" list="volumes" name="volume">
                 <datalist id="volumes">
-                    <option value="0.0" label="Mute">
+                    <option value="0.6" label="100%">
                     <option value="1.0" label="100%">
                 </datalist>
             </div>
@@ -71,6 +72,16 @@
             <option value="custom">Custom</option>
         </select>
     </div>
+   
+    <tone-example>
+        <tone-loader></tone-loader>
+    
+        <tone-content>
+            <tone-meter stereo></tone-meter>
+            <tone-trigger></tone-trigger>
+            <tone-ping-pong-delay></tone-ping-pong-delay>
+        </tone-content>
+    </tone-example>
     
     <div class="drums"></div>
     <div id="piano">
