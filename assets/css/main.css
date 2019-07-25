@@ -78,6 +78,18 @@ body {
   left: 310px;
 }
 
+.Gb5-key {
+  left: 382px;
+}
+
+.Ab5-key {
+  left: 418px;
+}
+
+.Bb5-key {
+  left: 454px;
+}
+
 .drums {
   background-image: linear-gradient(rgb(184, 5, 184), rgb(51, 51, 51));
   position: relative;
