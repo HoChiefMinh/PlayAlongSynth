@@ -1,0 +1,3 @@
+[submodule "assets/Tone"]
+	path = assets/Tone
+	url = https://github.com/Tonejs/Tone.js
