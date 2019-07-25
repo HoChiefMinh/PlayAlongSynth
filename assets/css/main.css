@@ -214,7 +214,7 @@ ul#menu li {
 }
 
 /* Sounds */
-#one, #two, #piano-one {
+#one, #two, #piano-one, #three {
   background-image: linear-gradient(rgb(240, 2, 240), rgb(12, 129, 197));
   outline: none;
   height: 80px;
