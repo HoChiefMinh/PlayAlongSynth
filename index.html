@@ -8,6 +8,8 @@
     <script src="https://code.jquery.com/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/13.0.1/Tone.min.js"></script>
     <script src="https://unpkg.com/@webcomponents/webcomponentsjs@^2/webcomponents-bundle.js"></script>
+    <script src="assets/Tone/examples/js/tonejs-ui.js"></script>
+    <script src="assets/Tone/Tone/core/Tone.js"></script>
     <link rel="stylesheet" href="assets/css/main.css">
 </head>
 
@@ -74,13 +76,10 @@
     </div>
    
     <tone-example>
-        <tone-loader></tone-loader>
-    
-        <tone-content>
-            <tone-meter stereo></tone-meter>
-            <tone-trigger></tone-trigger>
-            <tone-ping-pong-delay></tone-ping-pong-delay>
-        </tone-content>
+		<tone-content>
+			<tone-play-toggle></tone-play-toggle>
+			<tone-oscillator label="Oscillator" frequency></tone-oscillator>
+		</tone-content>
     </tone-example>
     
     <div class="drums"></div>

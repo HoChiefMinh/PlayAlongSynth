@@ -17,6 +17,66 @@ soundButtonThree.text("preset-3")
 soundButtonThree.attr("id", "three")
 $("#sounds").append(soundButtonThree)
 
+const synthA = new Tone.PolySynth(6, Tone.Synth, {
+  oscillator : {
+    type : "sine",
+    partials : [0, 1, 6, 7]
+  },
+
+  "envelope" : {
+    "attack" : 0,
+    "decay" : 0,
+    "sustain" : 1,
+    "release" : 4,
+  },
+
+  "portamento" : 0.03,
+
+  "pitchShift" : {
+    "pitch" : -12
+  },
+  
+})
+
+const synthB = new Tone.PolySynth(6, Tone.Synth, {
+  oscillator: {
+    type: 'triangle8'
+  },
+  envelope: {
+    attack: 2,
+    decay: 1,
+    sustain: 0.4,
+    release: 4
+  }
+})
+
+const synthC = new Tone.PolySynth(6, Tone.Synth, {
+
+  oscillator: {
+    type : 'sine',
+    modulationType : "sine",
+    modulationIndex: 3,
+    frequency : 440,
+    harmonicity : 3.4,
+  },
+  
+  portamento: 0.1,
+
+  envelope: {
+    attack: 0.001,
+    decay: 0.5,
+    sustain: 0.1,
+    release: 0.1   
+  },
+
+  pitchShift: {
+    pitch: -12
+  },
+})
+
+
+console.log(synthA)
+
 //on click change to next sound//
 //starts piano audio on click//
 let pianoOne = document.getElementById("piano-one")
@@ -163,26 +223,34 @@ let soundOne = document.getElementById("one")
 soundOne.addEventListener("click", function() {
   console.log("hello")
 
-  const synthA = new Tone.PolySynth(8, Tone.Synth, {
-    oscillator : {
-      type : "sine",
-      partials : [0, 1, 6, 7]
-    },
+  synthA.toMaster()
 
-    "envelope" : {
-      "attack" : 0,
-      "decay" : 0,
-      "sustain" : 1,
-      "release" : 0,
-    },
+  synthC.disconnect()
 
-    "portamento" : 0.03,
+  synthB.disconnect()
 
-    "pitchShift" : {
-      "pitch" : -12
-    },
+  console.log(synthA)
+
+  // const synthA = new Tone.PolySynth(6, Tone.Synth, {
+  //   oscillator : {
+  //     type : "sine",
+  //     partials : [0, 1, 6, 7]
+  //   },
+
+  //   "envelope" : {
+  //     "attack" : 0,
+  //     "decay" : 0,
+  //     "sustain" : 1,
+  //     "release" : 4,
+  //   },
+
+  //   "portamento" : 0.03,
+
+  //   "pitchShift" : {
+  //     "pitch" : -12
+  //   },
     
-  }).toMaster()
+  // }).toMaster()
   
   const piano = document.getElementById("piano");
 
@@ -194,7 +262,7 @@ soundOne.addEventListener("click", function() {
   
   piano.addEventListener("mouseup", e => {
     // stops the trigger
-    synthA.triggerAttackRelease("4n");
+    synthA.triggerRelease();
   });
   
     // handles keyboard events
@@ -323,7 +391,7 @@ soundOne.addEventListener("click", function() {
       case "l":
       case "p":
       case ";":
-        synthA.triggerRelease(); 
+        synth.triggerRelease(); 
     }
   });
 })
@@ -331,18 +399,12 @@ soundOne.addEventListener("click", function() {
 let soundTwo = document.getElementById("two")
 soundTwo.addEventListener("click", function() {
   console.log("hello")
-  
-  var synthB = new Tone.PolySynth(6, Tone.Synth, {
-    oscillator: {
-      type: 'triangle8'
-    },
-    envelope: {
-      attack: 2,
-      decay: 1,
-      sustain: 0.4,
-      release: 4
-    }
-  }).toMaster()
+
+  synthA.disconnect()
+
+  synthC.disconnect()
+
+  synthB.toMaster()
 
   const piano = document.getElementById("piano");
 
@@ -433,63 +495,30 @@ soundTwo.addEventListener("click", function() {
         return;
     }
     });
-  // the key plays the audio//
-  document.addEventListener("keyup", e => {
-    switch (e.key) {
-      case "a":
-      case "w":
-      case "s":
-      case "e":
-      case "d":
-      case "f":
-      case "t":
-      case "g":
-      case "y":
-      case "h":
-      case "u":
-      case "j":
-      case "k":
-      case "o":
-      case "l":
-      case "p":
-      case ";":
-        synthB.triggerRelease(); 
-    }
-  });
 })
 
 let soundThree = document.getElementById("three")
 soundThree.addEventListener("click", function() {
-  var synthC = new Tone.PolySynth(6, Tone.Synth, {
-    
-    oscillator: {
-      type: 'sine',
-      modulationType: 'sine',
-      modulationIndex: 3,
-      harmonicity: 3.4
-    },
-    envelope: {
-      attack: 0.001,
-      decay: 0.1,
-      sustain: 0.1,
-      release: 0.1   
-    },
 
-    delay: {
-      delayTime: 4
-    },
+console.log(synthC)
 
-    pitchShift: {
-      pitch: -12
-    }
-}).toMaster()
+var delay = new Tone.PingPongDelay({
+  delayTime : "8n",
+  maxDelayTime : "4n"
+  }).toMaster()
+
+synthC.connect(delay)
+
+synthA.disconnect()
+synthB.disconnect()
+synthC.toMaster()
 
 const piano = document.getElementById("piano");
 
   piano.addEventListener("mousedown", e => {
     // fires off a note continously until trigger is released
     synthC.triggerAttack(e.target.dataset.note);
-    console.log(SynthC);
+    console.log(synthC);
   });
   
   piano.addEventListener("mouseup", e => {
@@ -574,4 +603,7 @@ const piano = document.getElementById("piano");
     }
     });
   })
+
+
+
 
