@@ -202,8 +202,7 @@ soundOne.addEventListener("click", function() {
     // set keys to keyboard//
     switch (e.key) {
       case "a":
-        let c = document.querySelector(".C4-key")
-        c.classList.add("white-active");
+        $(".C4-key").addClass("white-active");
         setTimeout(classRemover, 150)
         return synthA.triggerAttackRelease("C4", "3n"); 
       case "w":
@@ -324,7 +323,7 @@ soundOne.addEventListener("click", function() {
       case "l":
       case "p":
       case ";":
-        synthA.triggerRelease("4n"); 
+        synthA.triggerRelease(); 
     }
   });
 })
@@ -333,7 +332,7 @@ let soundTwo = document.getElementById("two")
 soundTwo.addEventListener("click", function() {
   console.log("hello")
   
-  var synthB = new Tone.PolySynth({
+  var synthB = new Tone.PolySynth(6, Tone.Synth, {
     oscillator: {
       type: 'triangle8'
     },
@@ -575,3 +574,4 @@ const piano = document.getElementById("piano");
     }
     });
   })
+
