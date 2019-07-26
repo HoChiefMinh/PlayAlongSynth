@@ -12,6 +12,14 @@ body {
   background-image: linear-gradient(#23135a, rgb(35, 163, 214), rgb(15, 11, 238));
 }
 
+.music-player {
+  position: absolute;
+  top: 80px;
+  width: 100%;
+  height: 100px;
+  border: 3px solid #73AD21;
+}
+
 #piano {
   display: flex;
   position: relative;
@@ -214,9 +222,11 @@ ul#menu li {
 }
 
 /* Sounds */
-#one, #two, #piano-one {
+#preset-1, #preset-2, #preset-3, #one, #two, #three, #piano-one {
   background-image: linear-gradient(rgb(240, 2, 240), rgb(12, 129, 197));
   outline: none;
   height: 80px;
-  width: 75px;
+  width: 100%;
+  display: inline-block;
+  padding: 0;
 }
