@@ -5,22 +5,22 @@ function classRemover() {
 
 //creating buttons to hold our created sounds//
 let soundButtonOne = $("<button>")
-soundButtonOne.text("preset-1")
+soundButtonOne.text("Preset-1")
 soundButtonOne.attr("id", "one")
-$("#sounds").append(soundButtonOne)
+$("#preset-1").append(soundButtonOne)
 let soundButtonTwo = $("<button>")
-soundButtonTwo.text("preset-2")
+soundButtonTwo.text("Preset-2")
 soundButtonTwo.attr("id", "two")
-$("#sounds").append(soundButtonTwo)
+$("#preset-2").append(soundButtonTwo)
 console.log(soundButtonOne)
 let pianoButton = $("<button>")
-pianoButton.text("piano")
+pianoButton.text("Piano")
 pianoButton.attr("id", "piano-one")
-$("#sounds").append(pianoButton)
+$("#piano-one").append(pianoButton)
 let soundButtonThree = $("<button>")
-soundButtonThree.text("preset-3")
+soundButtonThree.text("Preset-3")
 soundButtonThree.attr("id", "three")
-$("#sounds").append(soundButtonThree)
+$("#preset-3").append(soundButtonThree)
 
 const synthA = new Tone.PolySynth(6, Tone.Synth, {
   oscillator : {
