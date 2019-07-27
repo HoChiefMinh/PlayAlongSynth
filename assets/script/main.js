@@ -88,87 +88,103 @@ $("#chordSearchBar").on("click", function(event) {
 // }).then(function(response) {
 // console.log(response)
 
+// })
 
 
 
 
-popup = window.open(
-  "https://accounts.spotify.com/authorize?client_id=b8ef7c5c993c43a9b1a4266b250d1e57&redirect_uri=http://localhost:5500/&response_type=token&state=123",
-  'Login with Spotify',
-  'width=800,height=600'
-)
+    // popup = window.open(
+    //   "https://accounts.spotify.com/authorize?client_id=b8ef7c5c993c43a9b1a4266b250d1e57&redirect_uri=http://localhost:5500/&response_type=token&state=123",
+    //   'Login with Spotify',
+    //   'width=800,height=600'
+    // ) 
 
-queryURL2 = "https://api.spotify.com/v1/artists/5oOhM2DFWab8XhSdQiITry"
-
-
-$.ajax({
-  url: queryURL2,
-  method: "GET"
-}).then(function(response) {
-
-  console.log(response)
-});
+    // window.spotifyCallback = (payload) => {
+    //   console.log(payload)
+    //   console.log(window)
 
 
-window.spotifyCallback = (payload) => {
-  console.log(payload)
+    //   popup.close()
+    //   fetch('https://api.spotify.com/v1/me', {
+    //     headers: {
+    //       'Authorization': `Bearer ${accessToken}`
+    //     }
+    //   }).then(response => {
+    //     return response.json()
+    //   }).then(data => {
+    //     console.log(data)
 
-  popup.close()
-  fetch('https://api.spotify.com/v1/me', {
-    headers: {
-      'Authorization': `Bearer ${accessToken}`
-    }
+    //     $.ajax({
+    //       url: 'https://api.spotify.com/v1/me',
+    //       headers: {
+    //           'Authorization': 'Bearer ' + accessToken
+    //       },
+    //       success: function(response) {
+    //       console.log(response)
+    //       console.log(accessToken)
+    //       }
+    //     })
+    //   })
+    // }
+  
+    // token = window.location.hash.substr(1).split('&')[0].split("=")[1]
+
+    // if (token) {
+    //   window.opener.spotifyCallback(token)
+    //   console.log(token)
+
+    // }
+
+
     
-  }).then(response => {
-    console.log(response)
-    return response.json()
-  }).then(data => {
+    
+    // queryURL2 = "https://api.spotify.com/v1/artists/5oOhM2DFWab8XhSdQiITry"
+
+
    
-    // do something with data
-  })
+
+
+
+// Get the hash of the url
+const hash = window.location.hash
+.substring(1)
+.split('&')
+.reduce(function (initial, item) {
+  if (item) {
+    var parts = item.split('=');
+    initial[parts[0]] = decodeURIComponent(parts[1]);
+  }
+  return initial;
+}, {});
+window.location.hash = '';
+console.log(hash)
+
+
+// Set token
+let _token = hash.access_token;
+console.log(_token)
+
+const authEndpoint = 'https://accounts.spotify.com/authorize';
+
+// Replace with your app's client ID, redirect URI and desired scopes
+const clientId = 'b8ef7c5c993c43a9b1a4266b250d1e57';
+const redirectUri = 'http://localhost:5500/';
+const scopes = [
+  'user-top-read'
+];
+
+// If there is no token, redirect to Spotify authorization
+if (!_token) {
+  window.location = `${authEndpoint}?client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scopes.join('%20')}&response_type=token&show_dialog=true`;
 }
 
-token = window.location.hash.substr(1).split('&')[0].split("=")[1]
-
-if (token) {
-  window.opener.spotifyCallback(token)
-  console.log(token)
-
-}
-
-
-
-
-
-// // Get the hash of the url
-// const hash = window.location.hash
-// .substring(1)
-// .split('&')
-// .reduce(function (initial, item) {
-//   if (item) {
-//     var parts = item.split('=');
-//     initial[parts[0]] = decodeURIComponent(parts[1]);
-//   }
-//   return initial;
-// }, {});
-// window.location.hash = '';
-
-// // Set token
-// let _token = hash.access_token;
-
-// const authEndpoint = 'https://accounts.spotify.com/authorize';
-
-// // Replace with your app's client ID, redirect URI and desired scopes
-// const clientId = 'b8ef7c5c993c43a9b1a4266b250d1e57';
-// const redirectUri = 'https://hochiefminh.github.io/ProjectUno/';
-// const scopes = [
-//   'user-top-read'
-// ];
-
-// // If there is no token, redirect to Spotify authorization
-// if (!_token) {
-//   window.location = `${authEndpoint}?client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scopes.join('%20')}&response_type=token&show_dialog=true`;
-// }
-
-// // Make a call using the token
-
+// Make a call using the token
+$.ajax({
+        url: 'https://api.spotify.com/v1/albums',
+        headers: {
+            'Authorization': 'Bearer ' + _token
+        },
+        method: "GET"
+    }).then(function(response) {
+      console.log(response)
+    })
