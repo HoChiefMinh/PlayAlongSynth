@@ -54,6 +54,14 @@ body {
   cursor: pointer;
 }
 
+.settingBar {
+  width: 350px;
+	height: 50px;
+	position: relative;
+	margin: 0 auto;
+	top: 80px;
+}
+
 .black-active {
   background-image: linear-gradient(#c28f8f, #7a7070);
 }
@@ -222,15 +230,20 @@ ul#menu li {
 }
 
 /* Sounds */
-<<<<<<< HEAD
 #preset-1, #preset-2, #preset-3, #one, #two, #three, #piano-one {
-=======
 #one, #two, #piano-one, #three {
->>>>>>> 895a9c5891dbece8272189d92de99cbb12d39777
   background-image: linear-gradient(rgb(240, 2, 240), rgb(12, 129, 197));
   outline: none;
   height: 80px;
   width: 100%;
   display: inline-block;
   padding: 0;
+  width: 75px;
+}
+
+tone-example {
+  display: flex;
+  position: relative;
+  top: 50px;
+  height: 50px;
 }
