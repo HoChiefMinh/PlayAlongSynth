@@ -46,6 +46,14 @@ body {
   cursor: pointer;
 }
 
+.settingBar {
+  width: 350px;
+	height: 50px;
+	position: relative;
+	margin: 0 auto;
+	top: 80px;
+}
+
 .black-active {
   background-image: linear-gradient(#c28f8f, #7a7070);
 }
