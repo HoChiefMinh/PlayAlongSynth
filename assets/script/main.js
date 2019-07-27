@@ -92,6 +92,7 @@ $("#chordSearchBar").on("click", function(event) {
 
 
 
+
 popup = window.open(
   "https://accounts.spotify.com/authorize?client_id=b8ef7c5c993c43a9b1a4266b250d1e57&redirect_uri=http://localhost:5500/&response_type=token&state=123",
   'Login with Spotify',
@@ -135,6 +136,7 @@ if (token) {
   console.log(token)
 
 }
+
 
 
 
