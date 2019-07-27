@@ -1,46 +1,67 @@
 //for when we add an object with the difference synth sounds//
 let count = 0;
-
-//removes classes//
-function classRemover() {
-  $(".white-key").removeClass("white-active")
-  $(".black-key").removeClass("black-active")
-}
-
 //creates buttons//
 function createButton() {
   $(".drums").empty();
-  let play = $("<button>");
-  play.text("Play")
-  play.addClass("play")
-  play.attr("data-play", "true")
-  $(".drums").append(play)
+    let play = $("<button>");
+    play.text("Play")
+    play.addClass("play")
+    play.attr("id", "play")
+    $(".drums").append(play)
+    let playTwo = $("<button>");
+    playTwo.text("Play")
+    playTwo.attr("id", "play-two")
+    playTwo.addClass("play")
+    $(".drums").append(playTwo)
+    let playThree = $("<button>");
+    playThree.text("Play")
+    playThree.attr("id", "play-three")
+    playThree.addClass("play")
+    $(".drums").append(playThree)
+    let playFour = $("<button>");
+    playFour.text("Play")
+    playFour.attr("id", "play-four")
+    playFour.addClass("play")
+    $(".drums").append(playFour)
+    let playFive = $("<button>");
+    playFive.text("Play")
+    playFive.attr("id", "play-five")
+    playFive.addClass("play")
+    $(".drums").append(playFive)
+    
 }
 //play drums on click and pause//
-$(".drums").on("click", ".play", function() {
-  let status = $(this).attr("data-play")
+$(".drums").on("click", "#play", function() {
   let drums = document.createElement('audio')
   drums.src = 'assets/sounds/drums1.mp3'
-  console.log(status)
-  if (status === "true") {
-    drums.play();
-    $(this).attr("data-play", "false")
-
-  } else {
-    $(this).text("Play")
-    $(this).attr("data-play", "true")
-  }
-  
+  drums.play()
 })
 
-createButton();
+$(".drums").on("click", "#play-two", function() {
+  let drumsTwo = document.createElement('audio')
+  drumsTwo.src = 'assets/sounds/drums2.wav'
+  console.log(drumsTwo)
+  drumsTwo.play()
+})
+
+$(".drums").on("click", "#play-three", function() {
+  let drumsThree = document.createElement('audio')
+  drumsThree.src = 'assets/sounds/bossanova.wav'
+  console.log(drumsThree)
+  drumsThree.play()
+})
 
 
 // -------------------------Chord Voicings-------------------------//
 $("#chordSearchBar").on("click", function(event) {
   event.preventDefault();
 
+<<<<<<< HEAD
+createButton();
+
+=======
   const chord = $("#chordSearch").val().trim()
+>>>>>>> 3b322c0a8d627edfa4a0d71e3f9ad7446e89e81b
 
   // addSpace = () => {
   //   if (chord )
