@@ -1,62 +1,46 @@
 //for when we add an object with the difference synth sounds//
 let count = 0;
+
+//removes classes//
+function classRemover() {
+  $(".white-key").removeClass("white-active")
+  $(".black-key").removeClass("black-active")
+}
+
 //creates buttons//
 function createButton() {
   $(".drums").empty();
-    let play = $("<button>");
-    play.text("Play")
-    play.addClass("play")
-    play.attr("id", "play")
-    $(".drums").append(play)
-    let playTwo = $("<button>");
-    playTwo.text("Play")
-    playTwo.attr("id", "play-two")
-    playTwo.addClass("play")
-    $(".drums").append(playTwo)
-    let playThree = $("<button>");
-    playThree.text("Play")
-    playThree.attr("id", "play-three")
-    playThree.addClass("play")
-    $(".drums").append(playThree)
-    let playFour = $("<button>");
-    playFour.text("Play")
-    playFour.attr("id", "play-four")
-    playFour.addClass("play")
-    $(".drums").append(playFour)
-    let playFive = $("<button>");
-    playFive.text("Play")
-    playFive.attr("id", "play-five")
-    playFive.addClass("play")
-    $(".drums").append(playFive)
-    
+  let play = $("<button>");
+  play.text("Play")
+  play.addClass("play")
+  play.attr("data-play", "true")
+  $(".drums").append(play)
 }
 //play drums on click and pause//
-$(".drums").on("click", "#play", function() {
+$(".drums").on("click", ".play", function() {
+  let status = $(this).attr("data-play")
   let drums = document.createElement('audio')
   drums.src = 'assets/sounds/drums1.mp3'
-  drums.play()
+  console.log(status)
+  if (status === "true") {
+    drums.play();
+    $(this).attr("data-play", "false")
+
+  } else {
+    $(this).text("Play")
+    $(this).attr("data-play", "true")
+  }
+  
 })
 
-$(".drums").on("click", "#play-two", function() {
-  let drumsTwo = document.createElement('audio')
-  drumsTwo.src = 'assets/sounds/drums2.wav'
-  console.log(drumsTwo)
-  drumsTwo.play()
-})
+createButton();
 
-$(".drums").on("click", "#play-three", function() {
-  let drumsThree = document.createElement('audio')
-  drumsThree.src = 'assets/sounds/bossanova.wav'
-  console.log(drumsThree)
-  drumsThree.play()
-})
+
 
 
 // -------------------------Chord Voicings-------------------------//
 $("#chordSearchBar").on("click", function(event) {
   event.preventDefault();
-
-createButton();
 
   const chord = $("#chordSearch").val().trim()
 
@@ -83,85 +67,10 @@ createButton();
 
 });
 
-// var spotifyApi = new SpotifyWebApi();
-// // spotifyApi.setPromiseImplementation(Q);
-
-// spotifyApi.getArtistAlbums('43ZHCT0cAZBISjO8DG9PnE', function(err, data) {
-//   if (err) console.error(err);
-//   else console.log('Artist albums', data);
-// });
-
-// // get Elvis' albums, using Promises through Promise, Q or when
-// spotifyApi.getArtistAlbums('43ZHCT0cAZBISjO8DG9PnE')
-//   .then(function(data) {
-//     console.log('Artist albums', data);
-//   }, function(err) {
-//     console.error(err);
-//   });
-
-
-// $.ajax({
-//   url: queryURL,
-//   method: "GET"
-// }).then(function(response) {
-// console.log(response)
-
-// })
-
-
-
-
-    // popup = window.open(
-    //   "https://accounts.spotify.com/authorize?client_id=b8ef7c5c993c43a9b1a4266b250d1e57&redirect_uri=http://localhost:5500/&response_type=token&state=123",
-    //   'Login with Spotify',
-    //   'width=800,height=600'
-    // ) 
-
-    // window.spotifyCallback = (payload) => {
-    //   console.log(payload)
-    //   console.log(window)
-
-
-    //   popup.close()
-    //   fetch('https://api.spotify.com/v1/me', {
-    //     headers: {
-    //       'Authorization': `Bearer ${accessToken}`
-    //     }
-    //   }).then(response => {
-    //     return response.json()
-    //   }).then(data => {
-    //     console.log(data)
-
-    //     $.ajax({
-    //       url: 'https://api.spotify.com/v1/me',
-    //       headers: {
-    //           'Authorization': 'Bearer ' + accessToken
-    //       },
-    //       success: function(response) {
-    //       console.log(response)
-    //       console.log(accessToken)
-    //       }
-    //     })
-    //   })
-    // }
-  
-    // token = window.location.hash.substr(1).split('&')[0].split("=")[1]
-
-    // if (token) {
-    //   window.opener.spotifyCallback(token)
-    //   console.log(token)
-
-    // }
-
-
-    
-    
-    // queryURL2 = "https://api.spotify.com/v1/artists/5oOhM2DFWab8XhSdQiITry"
-
 
    
 
-
+// ------------------------------- Spotfiy LOGGIN  ------------------------------- //
 
 // Get the hash of the url
 const hash = window.location.hash
@@ -176,7 +85,6 @@ const hash = window.location.hash
 }, {});
 window.location.hash = '';
 console.log(hash)
-
 
 
 // Set token
@@ -199,7 +107,7 @@ if (!_token) {
 
 // Make a call using the token
 $.ajax({
-        url: 'https://api.spotify.com/v1/albums',
+        url: 'https://api.spotify.com/v1/albums" -H "Accept: application/json" -H "Content-Type: application/json" -H "Authorization: Bearer "',
         headers: {
             'Authorization': 'Bearer ' + _token
         },
