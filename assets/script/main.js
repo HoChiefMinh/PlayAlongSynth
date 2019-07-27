@@ -15,13 +15,13 @@ function classRemover() {
   $(".black-key").removeClass("black-active");
 }
 
-//creates buttons//
+// Creates Button Bar for drum loops
 function createButton() {
   $(".drums").empty();
     let play = $("<button>");
     play.text("Play")
     play.addClass("play")
-    play.attr("id", "play")
+    play.attr("id", "play-one")
     $(".drums").append(play)
     let playTwo = $("<button>");
     playTwo.text("Play")
@@ -46,7 +46,7 @@ function createButton() {
     
 }
 //play drums on click and pause//
-$(".drums").on("click", "#play", function() {
+$(".drums").on("click", "#play-one", function() {
   if(playing === false) {
     playing = true;
     drumsOne.src = 'assets/sounds/drums1.mp3';
