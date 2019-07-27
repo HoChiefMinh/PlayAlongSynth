@@ -1,3 +1,8 @@
+function classRemover() {
+  $(".white-key").removeClass("white-active")
+  $(".black-key").removeClass("black-active")
+}
+
 //creating buttons to hold our created sounds//
 let soundButtonOne = $("<button>")
 soundButtonOne.text("preset-1")
