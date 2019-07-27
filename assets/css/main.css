@@ -230,14 +230,13 @@ ul#menu li {
 }
 
 /* Sounds */
-#preset-1, #preset-2, #preset-3, #one, #two, #three, #piano-one {
+#preset-1, #preset-2, #preset-3, #one, #two, #three, #four, #piano-one, #minhs-preset #patrick-preset #five {
   background-image: linear-gradient(rgb(240, 2, 240), rgb(12, 129, 197));
   outline: none;
   height: 80px;
   width: 100%;
   display: inline-block;
   padding: 0;
-  width: 75px;
 }
 
 tone-example {
