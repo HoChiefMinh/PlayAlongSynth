@@ -36,9 +36,34 @@ $(".drums").on("click", ".play", function() {
 createButton();
 
 
+// -------------------------Chord Voicings-------------------------//
+$("#chordSearchBar").on("click", function(event) {
+  event.preventDefault();
 
+  const chord = $("#chordSearch").val().trim()
 
+  // addSpace = () => {
+  //   if (chord )
+  // }
 
+  console.log(chord)
+  const queryURL= "https://api.uberchord.com/v1/chords/" + chord
+  console.log(queryURL)
+
+  $.ajax({
+    url: queryURL,
+    method: "GET"
+  }).then(function(response) {
+  
+  console.log(response)
+
+  console.log(response[0].tones)
+
+  $("#chord").text(response[0].tones)
+
+  });
+
+});
 
 // var spotifyApi = new SpotifyWebApi();
 // // spotifyApi.setPromiseImplementation(Q);
@@ -67,29 +92,52 @@ createButton();
 
 
 
-// popup = window.open(
-//   'https://accounts.spotify.com/authorize',
-//   'Login with Spotify',
-//   'width=800,height=600'
-// )
 
-// window.spotifyCallback = (payload) => {
-//   popup.close()
-//   fetch('https://api.spotify.com/v1/me', {
-//     headers: {
-//       'Authorization': `Bearer ${payload}`
-//     }
-//   }).then(response => {
-//     return response.json()
-//   }).then(data => {
-//     // do something with data
-//   })
-// }
+popup = window.open(
+  "https://accounts.spotify.com/authorize?client_id=b8ef7c5c993c43a9b1a4266b250d1e57&redirect_uri=http://localhost:5500/&response_type=token&state=123",
+  'Login with Spotify',
+  'width=800,height=600'
+)
 
-// token = window.location.hash.substr(1).split('&')[0].split("=")[1]
-// if (token) {
-//   window.opener.spotifyCallback(token)
-// }
+queryURL2 = "https://api.spotify.com/v1/artists/5oOhM2DFWab8XhSdQiITry"
+
+
+$.ajax({
+  url: queryURL2,
+  method: "GET"
+}).then(function(response) {
+
+  console.log(response)
+});
+
+
+window.spotifyCallback = (payload) => {
+  console.log(payload)
+
+  popup.close()
+  fetch('https://api.spotify.com/v1/me', {
+    headers: {
+      'Authorization': `Bearer ${accessToken}`
+    }
+    
+  }).then(response => {
+    console.log(response)
+    return response.json()
+  }).then(data => {
+   
+    // do something with data
+  })
+}
+
+token = window.location.hash.substr(1).split('&')[0].split("=")[1]
+
+if (token) {
+  window.opener.spotifyCallback(token)
+  console.log(token)
+
+}
+
+
 
 
 
@@ -125,15 +173,4 @@ createButton();
 // }
 
 // // Make a call using the token
-// $.ajax({
-//    url: "https://api.spotify.com/v1/me/top/artists",
-//    type: "GET",
-//    beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'Bearer ' + _token );},
-//    success: function(data) { 
-//      // Do something with the returned data
-//      data.items.map(function(artist) {
-//        let item = $('<li>' + artist.name + '</li>');
-//        item.appendTo($('#top-artists'));
-//      });
-//    }
-// });
+
