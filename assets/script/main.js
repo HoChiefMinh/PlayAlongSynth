@@ -1,10 +1,18 @@
 //for when we add an object with the difference synth sounds//
 let count = 0;
 
+// Play boolean
+let playing = false;
+
+// Declare audio variables
+let drumsOne = document.createElement('audio');
+let drumsTwo = document.createElement('audio')
+let drumsThree = document.createElement('audio');
+
 //removes classes//
 function classRemover() {
-  $(".white-key").removeClass("white-active")
-  $(".black-key").removeClass("black-active")
+  $(".white-key").removeClass("white-active");
+  $(".black-key").removeClass("black-active");
 }
 
 //creates buttons//
@@ -39,21 +47,47 @@ function createButton() {
 }
 //play drums on click and pause//
 $(".drums").on("click", "#play", function() {
- let drums = document.createElement('audio')
- drums.src = 'assets/sounds/drums1.mp3'
- drums.play()
+  if(playing === false) {
+    playing = true;
+    drumsOne.src = 'assets/sounds/drums1.mp3';
+    drumsOne.play();
+  }
+  else{
+    drumsOne.src = "";
+    drumsTwo.src = "";
+    drumsThree.src = "";
+    playing = false;
+  }
+ 
 })
 $(".drums").on("click", "#play-two", function() {
- let drumsTwo = document.createElement('audio')
- drumsTwo.src = 'assets/sounds/drums2.wav'
- console.log(drumsTwo)
- drumsTwo.play()
+  if(playing === false) {
+    playing = true;
+    drumsTwo.src = 'assets/sounds/drums2.wav'
+    drumsTwo.play();
+  }
+  else{
+    drumsOne.src = "";
+    drumsTwo.src = "";
+    drumsThree.src = "";
+    playing = false;
+  }
+ 
+ 
 })
 $(".drums").on("click", "#play-three", function() {
- let drumsThree = document.createElement('audio')
- drumsThree.src = 'assets/sounds/bossanova.wav'
- console.log(drumsThree)
- drumsThree.play()
+ if(playing === false)  {
+  playing = true;
+  drumsThree.src = 'assets/sounds/bossanova.wav';;
+  drumsThree.play();
+ }
+ else{
+  drumsOne.src = "";
+  drumsTwo.src = "";
+  drumsThree.src = "";
+  playing = false;
+ }
+ 
 })
 
 createButton();
