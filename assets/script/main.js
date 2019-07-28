@@ -9,12 +9,6 @@ let drumsOne = document.createElement('audio');
 let drumsTwo = document.createElement('audio')
 let drumsThree = document.createElement('audio');
 
-//removes classes//
-function classRemover() {
-  $(".white-key").removeClass("white-active");
-  $(".black-key").removeClass("black-active");
-}
-
 // Creates Button Bar for drum loops
 function createButton() {
   $(".drums").empty();
