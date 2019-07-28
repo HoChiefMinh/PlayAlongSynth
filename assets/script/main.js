@@ -9,12 +9,6 @@ let drumsOne = document.createElement('audio');
 let drumsTwo = document.createElement('audio')
 let drumsThree = document.createElement('audio');
 
-//removes classes//
-function classRemover() {
-  $(".white-key").removeClass("white-active");
-  $(".black-key").removeClass("black-active");
-}
-
 // Creates Button Bar for drum loops
 function createButton() {
   $(".drums").empty();
@@ -42,9 +36,11 @@ function createButton() {
     playFive.text("Play")
     playFive.attr("id", "play-five")
     playFive.addClass("play")
-    $(".drums").append(playFive)
-    
+    $(".drums").append(playFive) 
+    console.log(playFive)  
 }
+
+createButton();
 //play drums on click and pause//
 $(".drums").on("click", "#play-one", function() {
   if(playing === false) {
@@ -90,7 +86,6 @@ $(".drums").on("click", "#play-three", function() {
  
 })
 
-createButton();
 
 
 
