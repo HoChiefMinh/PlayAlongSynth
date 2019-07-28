@@ -111,7 +111,7 @@ body {
   position: relative;
   right: 40px;
   left: 194px;
-  bottom: 68px;
+  bottom: 200px;
   width: 364px;
   height: 80px;
 }
@@ -122,6 +122,7 @@ body {
   font-size: 30px;
   text-align: center;
   border: black solid 2px;
+
   display: flex;
   flex-direction: row;
 }
