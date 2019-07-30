@@ -59,7 +59,7 @@ $(".drums").on("click", "#play-one", function() {
 $(".drums").on("click", "#play-two", function() {
   if(playing === false) {
     playing = true;
-    drumsTwo.src = 'assets/sounds/drums2.wav'
+    drumsTwo.src = 'assets/sounds/drums2.wav';
     drumsTwo.play();
   }
   else{
@@ -74,7 +74,7 @@ $(".drums").on("click", "#play-two", function() {
 $(".drums").on("click", "#play-three", function() {
  if(playing === false)  {
   playing = true;
-  drumsThree.src = 'assets/sounds/bossanova.wav';;
+  drumsThree.src = 'assets/sounds/bossanova.wav';
   drumsThree.play();
  }
  else{
@@ -83,6 +83,20 @@ $(".drums").on("click", "#play-three", function() {
   drumsThree.src = "";
   playing = false;
  }
+ 
+})
+$(".drums").on("click", "#play-four", function() {
+  if(playing === false)  {
+   playing = true;
+   drumsThree.src = 'assets/sounds/Brazil.wav';
+   drumsThree.play();
+  }
+  else{
+   drumsOne.src = "";
+   drumsTwo.src = "";
+   drumsThree.src = "";
+   playing = false;
+  }
  
 })
 
