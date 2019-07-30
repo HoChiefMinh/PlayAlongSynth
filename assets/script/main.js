@@ -15,31 +15,31 @@ let drumsFive = document.createElement('audio');
 function createButton() {
   $(".drums").empty();
     let play = $("<button>");
-    play.text("Play")
-    play.addClass("play")
-    play.attr("id", "play-one")
-    $(".drums").append(play)
+    play.text("Techno");
+    play.addClass("play");
+    play.attr("id", "play-one");
+    $(".drums").append(play);
     let playTwo = $("<button>");
-    playTwo.text("Play")
-    playTwo.attr("id", "play-two")
-    playTwo.addClass("play")
-    $(".drums").append(playTwo)
+    playTwo.text("Drums");
+    playTwo.attr("id", "play-two");
+    playTwo.addClass("play");
+    $(".drums").append(playTwo);
     let playThree = $("<button>");
-    playThree.text("Play")
-    playThree.attr("id", "play-three")
-    playThree.addClass("play")
-    $(".drums").append(playThree)
+    playThree.text("Piano");
+    playThree.attr("id", "play-three");
+    playThree.addClass("play");
+    $(".drums").append(playThree);
     let playFour = $("<button>");
-    playFour.text("Play")
-    playFour.attr("id", "play-four")
-    playFour.addClass("play")
-    $(".drums").append(playFour)
-    let playFive = $("<button>");
-    playFive.text("Play")
-    playFive.attr("id", "play-five")
-    playFive.addClass("play")
-    $(".drums").append(playFive) 
-    console.log(playFive)  
+    playFour.text("Funk");
+    playFour.attr("id", "play-four");
+    playFour.addClass("play");
+    $(".drums").append(playFour);
+    // let playFive = $("<button>");
+    // playFive.text("Play")
+    // playFive.attr("id", "play-five")
+    // playFive.addClass("play")
+    // $(".drums").append(playFive) 
+    // console.log(playFive)  
 }
 
 createButton();
@@ -61,7 +61,7 @@ $(".drums").on("click", "#play-one", function() {
 $(".drums").on("click", "#play-two", function() {
   if(playing === false) {
     playing = true;
-    drumsTwo.src = 'assets/sounds/drums2.wav'
+    drumsTwo.src = 'assets/sounds/drums2.wav';
     drumsTwo.play();
   }
   else{
@@ -76,7 +76,7 @@ $(".drums").on("click", "#play-two", function() {
 $(".drums").on("click", "#play-three", function() {
  if(playing === false)  {
   playing = true;
-  drumsThree.src = 'assets/sounds/bossanova.wav';;
+  drumsThree.src = 'assets/sounds/bossanova.wav';
   drumsThree.play();
  }
  else{
@@ -85,6 +85,20 @@ $(".drums").on("click", "#play-three", function() {
   drumsThree.src = "";
   playing = false;
  }
+ 
+})
+$(".drums").on("click", "#play-four", function() {
+  if(playing === false)  {
+   playing = true;
+   drumsThree.src = 'assets/sounds/Brazil.wav';
+   drumsThree.play();
+  }
+  else{
+   drumsOne.src = "";
+   drumsTwo.src = "";
+   drumsThree.src = "";
+   playing = false;
+  }
  
 })
 

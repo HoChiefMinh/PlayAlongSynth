@@ -237,7 +237,20 @@ ul#menu li {
 }
 
 /* Sounds */
+
 #one, #two, #three, #four, #five, #preset-1, #preset-2, #preset-3, #minhs-preset, #patrick-preset, #piano-one, #dark-cave, #six  {
+=======
+#one, #two, #three, #four, #five, #preset-1, #preset-2, #preset-3, #preset-4, #patrick-preset, #piano-one {
+  background-image: linear-gradient(rgb(240, 2, 240), rgb(12, 129, 197));
+  outline: none;
+  height: 80px;
+  width: 100%;
+  display: inline-block;
+  padding: 0;
+}
+
+/* Drums */
+#play-one, #play-two, #play-three, #play-four{
   background-image: linear-gradient(rgb(240, 2, 240), rgb(12, 129, 197));
   outline: none;
   height: 80px;
