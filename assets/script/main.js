@@ -34,12 +34,12 @@ function createButton() {
     playFour.attr("id", "play-four");
     playFour.addClass("play");
     $(".drums").append(playFour);
-    // let playFive = $("<button>");
-    // playFive.text("Play")
-    // playFive.attr("id", "play-five")
-    // playFive.addClass("play")
-    // $(".drums").append(playFive) 
-    // console.log(playFive)  
+    let playFive = $("<button>");
+    playFive.text("Tropical")
+    playFive.attr("id", "play-five")
+    playFive.addClass("play")
+    $(".drums").append(playFive) 
+    console.log(playFive)  
 }
 
 createButton();
@@ -87,20 +87,7 @@ $(".drums").on("click", "#play-three", function() {
  }
  
 })
-$(".drums").on("click", "#play-four", function() {
-  if(playing === false)  {
-   playing = true;
-   drumsThree.src = 'assets/sounds/Brazil.wav';
-   drumsThree.play();
-  }
-  else{
-   drumsOne.src = "";
-   drumsTwo.src = "";
-   drumsThree.src = "";
-   playing = false;
-  }
- 
-})
+
 
 $(".drums").on("click", "#play-four", function() {
   if(playing === false)  {

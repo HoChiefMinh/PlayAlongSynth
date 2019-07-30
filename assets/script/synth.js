@@ -21,14 +21,15 @@ soundButtonThree.attr("id", "three")
 $("#preset-3").append(soundButtonThree)
 
 let soundButtonFour = $("<button>")
-soundButtonFour.text("Preset-4")
+soundButtonFour.text("Minh's Preset")
 soundButtonFour.attr("id", "four")
-$("#preset-4").append(soundButtonFour)
+$("#minhs-preset").append(soundButtonFour)
 
 let soundButtonFive = $("<button>")
 soundButtonFive.text("Patrick's Preset")
 soundButtonFive.attr("id", "five")
 $("#patrick-preset").append(soundButtonFive)
+
 let soundButtonSix = $("<button>")
 soundButtonSix.text("Dark Cave")
 soundButtonSix.attr("id", "six")
