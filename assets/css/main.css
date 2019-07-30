@@ -29,7 +29,7 @@ top: 85px;
   position: relative;
   margin-left: 4px;
   flex-direction: row;
-  right: 170px;
+  right: 10px;
 }
 
 .white-key {
@@ -126,7 +126,6 @@ top: 85px;
   font-size: 30px;
   text-align: center;
   border: black solid 2px;
-
   display: flex;
   flex-direction: row;
   position: relative;
@@ -238,6 +237,9 @@ ul#menu li {
 }
 
 /* Sounds */
+
+#one, #two, #three, #four, #five, #preset-1, #preset-2, #preset-3, #minhs-preset, #patrick-preset, #piano-one, #dark-cave, #six  {
+=======
 #one, #two, #three, #four, #five, #preset-1, #preset-2, #preset-3, #preset-4, #patrick-preset, #piano-one {
   background-image: linear-gradient(rgb(240, 2, 240), rgb(12, 129, 197));
   outline: none;
@@ -257,9 +259,57 @@ ul#menu li {
   padding: 0;
 }
 
+/* Drums */
+#play-one, #play-two, #play-three, #play-four, #play-five{
+  background-image: linear-gradient(rgb(240, 2, 240), rgb(12, 129, 197));
+  outline: none;
+  height: 80px;
+  width: 100%;
+  display: inline-block;
+  padding: 0;
+  border: black solid 2px;
+}
+
+#play-one {
+  position: relative;
+  bottom: 56px;
+  top: 62px;
+  left: 40px;
+}
+
+#play-two {
+  position: relative;
+  bottom: 18px;
+  left: 113px;
+}
+
+#play-three {
+  position: relative;
+  bottom: 98px;
+  left: 185px;
+}
+
+#play-four {
+  position: relative;
+  bottom: 178px;
+  left: 256px;
+}
+
+#play-five {
+  position: relative;
+  bottom: 258px;
+  left: 328px;
+}
+
 tone-example {
   display: flex;
   position: relative;
   top: 50px;
   height: 50px;
+}
+
+.container {
+  position: relative;
+  top: 200px;
+  right: 480px;
 }

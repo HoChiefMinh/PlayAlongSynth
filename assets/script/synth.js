@@ -5,18 +5,18 @@ function classRemover() {
 
 //creating buttons to hold our created sounds//
 let soundButtonOne = $("<button>")
-soundButtonOne.text("Preset-1")
+soundButtonOne.text("Corrupt Organ")
 soundButtonOne.attr("id", "one")
 $("#preset-1").append(soundButtonOne)
 
 let soundButtonTwo = $("<button>")
-soundButtonTwo.text("Preset-2")
+soundButtonTwo.text("Evening Haze")
 soundButtonTwo.attr("id", "two")
 $("#preset-2").append(soundButtonTwo)
 
 
 let soundButtonThree = $("<button>")
-soundButtonThree.text("Preset-3")
+soundButtonThree.text("Breeze")
 soundButtonThree.attr("id", "three")
 $("#preset-3").append(soundButtonThree)
 
@@ -288,6 +288,115 @@ pianoOne.addEventListener("click", function() {
     E5.src = 'assets/sounds/E5.mp3'
     E5.play();
   })
+  document.addEventListener("keydown", e => {
+    // set keys to keyboard//
+    switch (e.key) {
+      case "a":
+        $(".C4-key").addClass("white-active");
+        setTimeout(classRemover, 150)
+        var C4 = document.createElement('audio');
+        C4.src = 'assets/sounds/C4.mp3'
+        return C4.play();
+      case "w":
+        $(".Db4-key").addClass("black-active");
+        setTimeout(classRemover, 150)
+        var Db4 = document.createElement('audio');
+        Db4.src = 'assets/sounds/Db4.mp3'
+        return Db4.play();
+      case "s":
+        $(".D4-key").addClass("white-active");
+        setTimeout(classRemover, 150)
+        var D4 = document.createElement('audio');
+        D4.src = 'assets/sounds/D4.mp3'
+        return D4.play();
+      case "e":
+        $(".Eb4-key").addClass("black-active");
+        setTimeout(classRemover, 150)
+        var Eb4 = document.createElement('audio');
+        Eb4.src = 'assets/sounds/Eb4.mp3'
+        return Eb4.play();
+      case "d":
+        $(".E4-key").addClass("white-active");
+        setTimeout(classRemover, 150)
+        var E4 = document.createElement('audio');
+        E4.src = 'assets/sounds/E4.mp3'
+        return E4.play();
+      case "f":
+        $(".F4-key").addClass("white-active");
+        setTimeout(classRemover, 150)
+        var F4 = document.createElement('audio');
+        F4.src = 'assets/sounds/F4.mp3'
+        return F4.play();
+      case "t":
+        $(".Gb4-key").addClass("black-active");
+        setTimeout(classRemover, 150)
+        var Gb4 = document.createElement('audio');
+        Gb4.src = 'assets/sounds/Gb4.mp3'
+        return Gb4.play();
+      case "g":
+        $(".G4-key").addClass("white-active");
+        setTimeout(classRemover, 150)
+        var G4 = document.createElement('audio');
+        G4.src = 'assets/sounds/G4.mp3'
+        return G4.play();
+      case "y":
+        $(".Ab4-key").addClass("black-active");
+        setTimeout(classRemover, 150)
+        var Ab4 = document.createElement('audio');
+        Ab4.src = 'assets/sounds/Ab4.mp3'
+        return Ab4.play();
+      case "h":
+        $(".A4-key").addClass("white-active");
+        setTimeout(classRemover, 150)
+        var A4 = document.createElement('audio');
+        A4.src = 'assets/sounds/A4.mp3'
+        return A4.play();
+      case "u":
+        $(".Bb4-key").addClass("black-active");
+        setTimeout(classRemover, 150)
+        var Bb4 = document.createElement('audio');
+        Bb4.src = 'assets/sounds/Bb4.mp3'
+        return Bb4.play();
+      case "j":
+        $(".B4-key").addClass("white-active");
+        setTimeout(classRemover, 150)
+        var B4 = document.createElement('audio');
+        B4.src = 'assets/sounds/B4.mp3'
+        return B4.play();
+      case "k":
+        $(".C5-key").addClass("white-active");
+        setTimeout(classRemover, 150)
+        var C5 = document.createElement('audio');
+        C5.src = 'assets/sounds/C5.mp3'
+        return C5.play();
+      case "o":
+        $(".Db5-key").addClass("black-active");
+        setTimeout(classRemover, 150)
+        var D5 = document.createElement('audio');
+        D5.src = 'assets/sounds/D5.mp3'
+        return D5.play();
+      case "l":
+        $(".D5-key").addClass("white-active");
+        setTimeout(classRemover, 150)
+        var D5 = document.createElement('audio');
+        D5.src = 'assets/sounds/D5.mp3'
+        return D5.play();
+      case "p":
+        $(".Eb5-key").addClass("black-active");
+        setTimeout(classRemover, 150)
+        var Eb5 = document.createElement('audio');
+        Eb5.src = 'assets/sounds/Eb5.mp3'
+        return Eb5.play();
+      case ";":
+        $(".E5-key").addClass("white-active");
+        setTimeout(classRemover, 150)
+        var E5 = document.createElement('audio');
+        E5.src = 'assets/sounds/E5.mp3'
+        return E5.play();
+      default:
+        return;
+    }
+    });
 })
 //synths//
 //first preset on click//
@@ -627,11 +736,11 @@ synthC.toMaster()
       case "u":
         $(".Bb4-key").addClass("black-active");
         setTimeout(classRemover, 150)
-        return synthC.triggerAttackRelease("Bb4", "3n");
+        return synthC.triggerAttackRelease(["Bb4", "Db5", "F5", "Ab5", "C6"], "8n");
       case "j":
         $(".B4-key").addClass("white-active");
         setTimeout(classRemover, 150)
-        return synthC.triggerAttackRelease("B4", "3n");
+        return synthC.triggerAttackRelease(["B4", "D5", "Gb5", "A5", "Db6"], "8n");
       case "k":
         $(".C5-key").addClass("white-active");
         setTimeout(classRemover, 150)
