@@ -110,7 +110,7 @@ top: 85px;
   left: 454px;
 }
 
-.drums {
+/* .drums {
   background-image: linear-gradient(rgb(184, 5, 184), rgb(51, 51, 51));
   position: relative;
   right: 40px;
@@ -118,9 +118,9 @@ top: 85px;
   bottom: 200px;
   width: 364px;
   height: 80px;
-}
+} */
 
-.play {
+/* .play {
   background-image: linear-gradient(rgb(184, 5, 184), rgb(51, 51, 51));
   width: 50%;
   font-size: 30px;
@@ -132,7 +132,7 @@ top: 85px;
   position: relative;
   right: 350px; 
   bottom: 100px
-}
+} */
 
 /* Header Styling */
 header {
@@ -239,6 +239,16 @@ ul#menu li {
 
 /* Sounds */
 #one, #two, #three, #four, #five, #preset-1, #preset-2, #preset-3, #preset-4, #patrick-preset, #piano-one {
+  background-image: linear-gradient(rgb(240, 2, 240), rgb(12, 129, 197));
+  outline: none;
+  height: 80px;
+  width: 100%;
+  display: inline-block;
+  padding: 0;
+}
+
+/* Drums */
+#play-one, #play-two, #play-three, #play-four{
   background-image: linear-gradient(rgb(240, 2, 240), rgb(12, 129, 197));
   outline: none;
   height: 80px;

@@ -32,28 +32,35 @@
         <nav role="navigation">
             <ul id="menu">
                 <li>
-                    <a href="file:///Users/austinalber/Desktop/coding/ProjectUno/index.html">Synthesizer</a>
+                    <a href="https://hochiefminh.github.io/ProjectUno/">Synthesizer</a>
                 </li>
+
+                <!-- Sound Option Dropdown Menu -->
                 <div class="btn-group">
                     <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
-                      Presets
+                      Preset Sounds
                     </button>
                     <div class="dropdown-menu dropdown-menu-lg-right">
                       <button id="preset-1" class="dropdown-item" type="button"></button
-
                       <button id="preset-2" class="dropdown-item" type="button"></button>
                       <button id="preset-3" class="dropdown-item" type="button"></button>
                       <button id="preset-4" class="dropdown-item" type="button"></button>
                       <button id="patrick-preset" class="dropdown-item" type="button"></button>
                       <button id="piano-one" class="dropdown-item" type="button"></button>
-                      <button id="dark-cave" class="dropdown-item" type="button"></button>
+                      <!-- <button id="dark-cave" class="dropdown-item" type="button"></button> -->
                     </div>
-                  </div>
-                    
-                <li>
-                    <!-- Preset Sound Buttons Appear Here -->
-                    <div id="sounds"></div>
-                </li>
+                </div>
+
+                <!-- Drum Loop Dropdown Menu -->
+                <div class="btn-group">
+                    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
+                        Preset Drum Loops
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-lg-right">
+                        <!-- Drum Loops Appear Here -->
+                        <div class="drums"></div>
+                    </div>
+                </div>
             </ul>
         </nav>
     </header>
@@ -69,16 +76,10 @@
         <div class="keyboard"></div>
     </div>
 
-    <tone-example>
-		<tone-content>
-			<tone-play-toggle></tone-play-toggle>
-			<tone-oscillator label="Oscillator" frequency></tone-oscillator>
-		</tone-content>
-    </tone-example>
-    
-    <div class="drum-container">
+    <!-- Drum Divs (If Flexbox is used) -->
+    <!-- <div class="drum-container">
         <div class="drums"></div>
-    </div>
+    </div> -->
 
     <div class="piano-container">
         <div id="piano">
@@ -111,9 +112,8 @@
 
 
      
-
+    <!-- Music Chord Search Bar -->
     <div class="container">
-    
         <div class="form-group">
             <label for="chordSearch">Notes in a Chords</label>
             <input type="search" class="form-control" id="chordSearch" placeholder="Em">
