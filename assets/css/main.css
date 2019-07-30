@@ -20,7 +20,8 @@ body {
 }
 
 .drum-container {
-
+position: relative;
+top: 85px;
 }
 
 #piano {
@@ -129,6 +130,7 @@ body {
   flex-direction: row;
   position: relative;
   right: 350px; 
+  bottom: 100px
 }
 
 /* Header Styling */
