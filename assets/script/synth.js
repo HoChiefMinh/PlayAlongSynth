@@ -8,27 +8,31 @@ let soundButtonOne = $("<button>")
 soundButtonOne.text("Preset-1")
 soundButtonOne.attr("id", "one")
 $("#preset-1").append(soundButtonOne)
+
 let soundButtonTwo = $("<button>")
 soundButtonTwo.text("Preset-2")
 soundButtonTwo.attr("id", "two")
 $("#preset-2").append(soundButtonTwo)
-console.log(soundButtonOne)
-let pianoButton = $("<button>")
-pianoButton.text("Piano")
-pianoButton.attr("id", "piano-one")
-$("#piano-one").append(pianoButton)
+
 let soundButtonThree = $("<button>")
 soundButtonThree.text("Preset-3")
 soundButtonThree.attr("id", "three")
 $("#preset-3").append(soundButtonThree)
+
 let soundButtonFour = $("<button>")
-soundButtonFour.text("Minh's Preset")
+soundButtonFour.text("Preset-4")
 soundButtonFour.attr("id", "four")
-$("#minhs-preset").append(soundButtonFour)
+$("#preset-4").append(soundButtonFour)
+
 let soundButtonFive = $("<button>")
 soundButtonFive.text("Patrick's Preset")
 soundButtonFive.attr("id", "five")
 $("#patrick-preset").append(soundButtonFive)
+
+let pianoButton = $("<button>")
+pianoButton.text("Piano")
+pianoButton.attr("id", "piano-one")
+$("#piano-one").append(pianoButton)
 
 
 const synthA = new Tone.PolySynth(6, Tone.Synth, {
