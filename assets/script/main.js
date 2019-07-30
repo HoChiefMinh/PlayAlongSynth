@@ -8,6 +8,8 @@ let playing = false;
 let drumsOne = document.createElement('audio');
 let drumsTwo = document.createElement('audio')
 let drumsThree = document.createElement('audio');
+let drumsFour = document.createElement('audio');
+let drumsFive = document.createElement('audio');
 
 // Creates Button Bar for drum loops
 function createButton() {
@@ -85,6 +87,42 @@ $(".drums").on("click", "#play-three", function() {
  }
  
 })
+
+$(".drums").on("click", "#play-four", function() {
+  if(playing === false)  {
+   playing = true;
+   drumsFour.src = 'assets/sounds/house.wav';;
+   drumsFour.play();
+  }
+  else{
+   drumsOne.src = "";
+   drumsTwo.src = "";
+   drumsThree.src = "";
+   drumsFour.src = "";
+   playing = false;
+  }
+  
+ })
+
+ $(".drums").on("click", "#play-five", function() {
+  if(playing === false)  {
+   playing = true;
+   drumsFive.src = 'assets/sounds/tropical.wav';
+   drumsFive.play();
+  }
+  else{
+   drumsOne.src = "";
+   drumsTwo.src = "";
+   drumsThree.src = "";
+   drumsFour.src = "";
+   drumsFive.src = "";
+   playing = false;
+  }
+  
+ })
+
+
+
 
 
 
