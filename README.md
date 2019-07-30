@@ -11,13 +11,12 @@
     -   Along with the piano, there will be an option for the user to choose genres and specific songs pulled from an
         API so that the user can follow along with the music to practice their skills.
 
-* Usage
-
-    - Press buttons, slide stuff, make music
-
 * Future Updates
 
-    - Make the damn thing
+    - Master Volume Slider
+    - Better Spotify User Login
+    - Create Sliders for added manipulation: oscillator, pitch, frequency
+    - Improve Chord API
 
 * Step-by-Step
 
