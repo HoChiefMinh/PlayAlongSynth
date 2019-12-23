@@ -1,6 +1,6 @@
 # ProjectUno
 
-* Source: https://hochiefminh.github.io/ProjectUno/
+* Source: https://hochiefminh.github.io/PlayAlongSynth/
 
 * Applications
 
